@@ -3,8 +3,10 @@ package main
 import (
     "fmt"
 	"os"
-	"bufio"
 	"time"
+	"bufio"
+	"strconv"
+	"strings"
 )
 
 type Pessoa struct {
@@ -13,33 +15,45 @@ type Pessoa struct {
 	Vida int
 }
 
-func panel_create_player() Pessoa {
-	
-	var p Pessoa
-	
-	clear_screen()
-	fmt.Printf("\n\nQual seu nome?\n\n")
-	// lendo o nome da pessoa
-	scanner := bufio.NewScanner(os.Stdin)
-	if scanner.Scan() {
-		p.Nome = scanner.Text()
-	}
-
-	fmt.Printf("\n\nQual sua idade?\n\n")
-	// lendo o nome da pessoa
-	scanner = bufio.NewScanner(os.Stdin)
-	if scanner.Scan() {
-		p.Idade = scanner.Text()
-	}
-
-	p.Vida = 100
-
-	return p
-
+type Jogador struct {
+	Nome string
+	Idade int
+	Vida int
 }
 
-func panel_introducao_0(p Pessoa) {
+func panel_create_pessoa(pessoa *Pessoa) {
+	// panel_create_pessoa() Pessoa
+    clear_screen()
+    fmt.Printf("\n\nQual seu nome?\n\n")
 
+    // Lendo o nome da pessoa
+    scanner := bufio.NewScanner(os.Stdin)
+    if scanner.Scan() {
+        pessoa.Nome = scanner.Text()
+    }
+
+    // Lendo a idade da pessoa
+    reader := bufio.NewReader(os.Stdin)
+    fmt.Printf("\n\nQual sua idade?\n\n")
+    idade, _ := reader.ReadString('\n')
+    idade = strings.TrimSpace(idade)
+    pessoa.Idade, _ = strconv.Atoi(idade)
+
+	//return p
+}
+func panel_list_pessoa() Jogador {
+	var p Pessoa
+	var j Jogador
+	j.Nome = p.Nome
+	j.Idade = p.Idade
+	j.Vida = 100
+	return j
+}
+
+
+func panel_introducao_0(p *Pessoa) {
+
+	//var p Pessoa
 	clear_screen()
 	linha_0_efeito()
 	//linha_0()

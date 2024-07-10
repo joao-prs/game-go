@@ -38,14 +38,13 @@ func menu_jogador() {
 			continue
 		
 		case "3":
-			//time.Sleep(1 * time.Second)
 			break
 
 		
 		case "4":
-			//time.Sleep(1 * time.Second)
-			jogador := panel_create_player()
-			menu_jogador(jogador)
+			
+			pessoa := panel_list_pessoa()
+			menu_jogador_personagem(*Pessoa)
 			continue
 
 		case "q":
@@ -64,17 +63,18 @@ func menu_jogador() {
 
 
 
-func menu_jogador(p Pessoa) {
+func menu_jogador_personagem(j *Pessoa) {
 
 	for {
 		clear_screen()
 
-		fmt.Println("Nome: ", p.Nome)
-		fmt.Println("vida: ", p.Vida)
+		fmt.Println("Nome: ", j.Nome)
+		fmt.Println("idade: ", j.Idade)
+		fmt.Println("vida: ", j.Vida)
 		linha_1()
 		fmt.Println("| opções:             |")
 		fmt.Println("|  1 - fechar menu    |")
-		fmt.Println("|  q - sair do jogo.  |\n")
+		//fmt.Println("|  q - sair do jogo.  |\n")
 
 
 		reader := bufio.NewReader(os.Stdin)
@@ -83,28 +83,12 @@ func menu_jogador(p Pessoa) {
 		escolha = strings.TrimSpace(escolha)
 
 		switch escolha {
-		case "1":
-			fmt.Printf("\nvoce abriu o inventario\n")
-			time.Sleep(1 * time.Second)
-			continue
-
-		case "2":
-			fmt.Printf("\nvoce abriu o mapa\n")
-			time.Sleep(1 * time.Second)
-			continue
 		
-		case "3":
-			//time.Sleep(1 * time.Second)
+		case "1":
 			break
 
-		
-		case "2":
-			fmt.Printf("\nvoce abriu o mapa\n")
-			time.Sleep(1 * time.Second)
-			continue
-
-		case "q":
-			quitando()
+		//case "q":
+		//	quitando()
 
 		default:
 			fmt.Println("\n\033[91mEscolha inválida!\033[0m")

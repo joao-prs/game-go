@@ -68,7 +68,7 @@ func menu_tela_inicial() {
 			time.Sleep(1 * time.Second)
 
 			// o jogo inteiro ta aqui kkkkkkkkkkkkkkkkkk vou arrumar depois
-			jogador := panel_create_player()
+			jogador := panel_create_pessoa(*Pessoa)
 			panel_introducao_0(jogador)
 			janela_gameplay_0()
 
