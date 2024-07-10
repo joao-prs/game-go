@@ -44,7 +44,7 @@ func menu_jogador() {
 		case "4":
 			
 			pessoa := panel_list_pessoa()
-			menu_jogador_personagem(*Pessoa)
+			menu_jogador_personagem(pessoa)
 			continue
 
 		case "q":

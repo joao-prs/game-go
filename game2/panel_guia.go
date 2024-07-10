@@ -16,12 +16,10 @@ type Pessoa struct {
 }
 
 type Jogador struct {
-	Nome string
-	Idade int
-	Vida int
+	Pessoa
 }
 
-func panel_create_pessoa(pessoa *Pessoa) {
+func panel_create_pessoa(pessoa *Pessoa) Pessoa {
 	// panel_create_pessoa() Pessoa
     clear_screen()
     fmt.Printf("\n\nQual seu nome?\n\n")
@@ -39,9 +37,9 @@ func panel_create_pessoa(pessoa *Pessoa) {
     idade = strings.TrimSpace(idade)
     pessoa.Idade, _ = strconv.Atoi(idade)
 
-	//return p
+	return p
 }
-func panel_list_pessoa() Jogador {
+func panel_list_pessoa() Pessoa {
 	var p Pessoa
 	var j Jogador
 	j.Nome = p.Nome
